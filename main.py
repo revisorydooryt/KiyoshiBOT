@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import sys
 import traceback
+import os
+from dotenv import load_dotenv
 
 # This will keep bot alive
 from keep_alive import keep_alive
@@ -18,6 +20,9 @@ if __name__ == '__main__':
         except Exception as e:
             print(f'Failed to load extension {extension}', file=sys.stderr)
             traceback.print_exc()
+           
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 keep_alive()
-bot.run('Nzg2NTMzODc1NzEwODIwMzYz.X9HywQ.1xr40DFIxvoAp5XmLrWv16lMjKI')
+bot.run(TOKEN)
